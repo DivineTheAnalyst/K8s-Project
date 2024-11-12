@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-app-service
+spec:
+  selector:
+    app: go-primenumbers
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80  # Make sure this matches the containerPort in your Deployment
+  type: LoadBalancer
