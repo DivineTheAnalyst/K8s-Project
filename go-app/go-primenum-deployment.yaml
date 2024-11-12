@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-primenumbers-app
+  labels:
+    app: go-primenumbers
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-primenumbers
+  template:
+    metadata:
+      labels:
+        app: go-primenumbers
+    spec:
+      containers:
+        - name: go-primenumbers
+          image: ijeawele/go-primenumbers-app:latest
+          ports:
+            - containerPort: 80  
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
