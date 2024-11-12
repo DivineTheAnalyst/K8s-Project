@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     "math"
-    "time"
+    "net/http"
 )
 
 // Function to check if a number is prime
@@ -31,11 +31,16 @@ func generatePrimes() {
 }
 
 func main() {
-    // Run prime number generation in a loop to stress the CPU
+    // Start generating prime numbers in a goroutine
     go generatePrimes()
-    
-    // Keep the main goroutine running to avoid premature exit
-    for {
-        time.Sleep(time.Second)
+
+    // HTTP handler to keep the server running
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintln(w, "Prime number generator is running!")
+    })
+
+    // Start HTTP server on port 80
+    if err := http.ListenAndServe(":80", nil); err != nil {
+        fmt.Println("Failed to start server:", err)
     }
 }
