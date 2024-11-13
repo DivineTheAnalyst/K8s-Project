@@ -90,6 +90,9 @@ Role-Based Access Control (RBAC) in Kubernetes is a security mechanism that rest
   - rbac-role-divine.yaml: Allows the user to list and describe deployments only.
     
   - rbac-rolebinding-divine.yaml: Binds the IAM user to the specified role, ensuring the restricted permissions.
+ 
+    ![Screenshot 2024-11-13 155806](https://github.com/user-attachments/assets/2e8dd83f-27b8-40d1-90c2-3c608b5d4b19)
+   user _ijeawele_ only having permission to view deployments but cannot view pods
 
   
 **This project helped me implement key Kubernetes concepts, especially multi-service deployment, HPA configuration, and secure access control through RBAC. It’s been a rewarding experience putting my knowledge into practice.**
